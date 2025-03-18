@@ -128,7 +128,7 @@ export const GlobalFiltering: TableFeature = {
         (table.options.enableGlobalFilter ?? true) &&
         (table.options.enableFilters ?? true) &&
         (
-          table.options.getColumnCanGlobalFilter?.(column) ?? true || 
+          (table.options.getColumnCanGlobalFilter?.(column) ?? true) || 
           column.columnDef.enableGlobalFilter
         ) &&
         !!column.accessorFn
