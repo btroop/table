@@ -127,10 +127,8 @@ export const GlobalFiltering: TableFeature = {
         (column.columnDef.enableGlobalFilter ?? true) &&
         (table.options.enableGlobalFilter ?? true) &&
         (table.options.enableFilters ?? true) &&
-        (
-          (table.options.getColumnCanGlobalFilter?.(column) ?? true) || 
-          column.columnDef.enableGlobalFilter
-        ) &&
+        ((table.options.getColumnCanGlobalFilter?.(column) ?? true) ||
+          (column.columnDef.enableGlobalFilter ? true : false)) &&
         !!column.accessorFn
       )
     }
